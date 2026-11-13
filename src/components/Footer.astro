@@ -1,0 +1,35 @@
+---
+import { site } from "../data/site";
+const year = new Date().getFullYear();
+---
+<footer class="wrap footer">
+  <span>© {year} {site.name} · Fait main à Menton, entre mer et citronniers.</span>
+  <span class="mono" title="Essayez sur le clavier">↑ ↑ ↓ ↓ ← → ← → B A</span>
+</footer>
+
+<div id="konami" class="konami" hidden role="status">
+  <p class="h">🍋 Combo débloqué !</p>
+  <p>Vous avez l'œil. On devrait travailler ensemble.</p>
+</div>
+
+<script>
+  const seq = ["ArrowUp", "ArrowUp", "ArrowDown", "ArrowDown", "ArrowLeft", "ArrowRight", "ArrowLeft", "ArrowRight", "b", "a"];
+  let i = 0;
+  const box = document.getElementById("konami");
+  document.addEventListener("keydown", (e) => {
+    const key = e.key.length === 1 ? e.key.toLowerCase() : e.key;
+    i = key === seq[i] ? i + 1 : key === seq[0] ? 1 : 0;
+    if (i === seq.length && box) {
+      i = 0;
+      box.hidden = false;
+      setTimeout(() => (box.hidden = true), 4000);
+    }
+  });
+</script>
+
+<style>
+  .footer { padding-block: 32px 48px; display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between; color: var(--muted); font-size: .95rem; border-top: 1px solid #E2D6BF; }
+  .konami { position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%); background: var(--ink); color: var(--cream); padding: 18px 26px; border-radius: 18px; box-shadow: 0 18px 40px rgba(27, 42, 65, .25); z-index: 20; text-align: center; }
+  .konami p { margin: 0; }
+  .konami .h { font-size: 1.3rem; margin-bottom: 4px; }
+</style>

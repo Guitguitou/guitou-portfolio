@@ -1,0 +1,33 @@
+---
+import { method } from "../data/site";
+---
+<section id="methode" class="band section">
+  <div class="wrap grid-auto inner" style="--min: 340px">
+    <div class="col">
+      <p class="mono accent">Méthode</p>
+      <h2 class="h h2">Je code avec l'IA. <em>Vous gardez un humain.</em></h2>
+      <p class="text">L'IA est mon coéquipier de double : elle me fait gagner du temps sur le répétitif et m'aide à tester plus. Les choix, la relecture et la responsabilité de chaque ligne restent les miens.</p>
+    </div>
+    <dl class="list">
+      {method.map((m) => (
+        <div class="row">
+          <dt class="mono accent">{m.k}</dt>
+          <dd>{m.v}</dd>
+        </div>
+      ))}
+    </dl>
+  </div>
+</section>
+<style>
+  .band { background: var(--ink); color: var(--cream); }
+  .inner { gap: clamp(40px, 6vw, 64px); align-items: start; }
+  .col { display: flex; flex-direction: column; gap: 20px; }
+  .accent { margin: 0; color: var(--lemon); }
+  .h2 { line-height: 1.08; }
+  em { font-weight: 500; color: var(--lemon); }
+  .text { margin: 0; font-size: 1.15rem; line-height: 1.7; color: #D9DEE7; }
+  .list { margin: 0; }
+  .row { padding: 22px 0; border-top: 1px solid #3A4A66; display: flex; flex-wrap: wrap; gap: 6px 20px; }
+  dt { padding-top: 4px; flex: 0 0 9rem; }
+  dd { margin: 0; font-size: 1.1rem; line-height: 1.55; flex: 1 1 14rem; }
+</style>

@@ -1,0 +1,35 @@
+---
+import { about } from "../data/site";
+---
+<section id="perso" class="band section">
+  <div class="wrap stack">
+    <div class="grid-auto head">
+      <div class="col">
+        <p class="mono kicker">À propos</p>
+        <h2 class="h h2">Quand je ne code pas…</h2>
+      </div>
+      <p class="intro">J'aime quand les couleurs s'accordent, quand le code est propre et quand une réunion se termine par un sourire. Le reste du temps :</p>
+    </div>
+    <div class="grid-auto cards" style="--min: 240px">
+      {about.map((a) => (
+        <div class="card">
+          <span class="icon" aria-hidden="true" style={`background: ${a.color}`}>{a.icon}</span>
+          <h3 class="h">{a.title}</h3>
+          <p>{a.text}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+<style>
+  .band { background: var(--sand); }
+  .stack { display: flex; flex-direction: column; gap: 48px; }
+  .head { gap: 32px; align-items: end; }
+  .col { display: flex; flex-direction: column; gap: 14px; }
+  .intro { margin: 0; font-size: 1.1rem; line-height: 1.65; }
+  .cards { gap: 20px; }
+  .card { background: var(--cream); border-radius: 18px; padding: 28px; display: flex; flex-direction: column; gap: 12px; }
+  .icon { width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; }
+  h3 { margin: 0; font-size: 1.3rem; }
+  p { margin: 0; line-height: 1.6; }
+</style>

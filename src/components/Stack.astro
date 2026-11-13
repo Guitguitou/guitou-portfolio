@@ -1,0 +1,12 @@
+---
+import { stack } from "../data/site";
+---
+<div class="strip">
+  <ul class="wrap mono list" aria-label="Technologies utilisées">
+    {stack.map((s) => <li>{s}</li>)}
+  </ul>
+</div>
+<style>
+  .strip { border-block: 1.5px solid var(--ink); padding-block: 18px; }
+  .list { margin: 0 auto; list-style: none; display: flex; flex-wrap: wrap; gap: 12px 28px; justify-content: space-between; }
+</style>

@@ -1,0 +1,30 @@
+---
+import { projects } from "../data/site";
+---
+<section id="projets" class="wrap section stack">
+  <div class="col">
+    <p class="mono kicker">Réalisations</p>
+    <h2 class="h h2">Quelques projets</h2>
+  </div>
+  <div class="grid-auto grid" style="--min: 340px">
+    {projects.map((p) => (
+      <a href={p.href} class="project">
+        <div class="shot" style={`background: ${p.bg}`}>[CAPTURE DU PROJET]</div>
+        <div class="meta">
+          <h3 class="h">{p.title}</h3>
+          <span class="mono tag">{p.tag}</span>
+        </div>
+      </a>
+    ))}
+  </div>
+</section>
+<style>
+  .stack { display: flex; flex-direction: column; gap: 48px; }
+  .col { display: flex; flex-direction: column; gap: 14px; }
+  .grid { gap: 40px 32px; }
+  .project { text-decoration: none; display: flex; flex-direction: column; gap: 16px; }
+  .shot { aspect-ratio: 4 / 3; border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: .95rem; }
+  .meta { display: flex; justify-content: space-between; gap: 16px; align-items: baseline; }
+  h3 { margin: 0; font-size: 1.45rem; }
+  .tag { color: var(--muted); white-space: nowrap; }
+</style>

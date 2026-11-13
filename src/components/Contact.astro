@@ -1,0 +1,27 @@
+---
+import { site } from "../data/site";
+---
+<section id="contact" class="wrap section">
+  <div class="box grid-auto">
+    <div class="col">
+      <h2 class="h title">Un projet en tête ?</h2>
+      <p class="text">Racontez-moi votre idée. Je réponds sous 48 h avec une première estimation, et sans jargon.</p>
+    </div>
+    <div class="links">
+      <a href={`mailto:${site.email}`} class="btn btn-dark big">{site.email}</a>
+      <p class="social">
+        {site.links.map((l) => <a href={l.href}>{l.label}</a>)}
+      </p>
+    </div>
+  </div>
+</section>
+<style>
+  .box { background: var(--lemon); border-radius: 28px; padding: clamp(40px, 6vw, 80px); gap: 40px; align-items: center; }
+  .col { display: flex; flex-direction: column; gap: 18px; }
+  .title { margin: 0; font-size: clamp(2.4rem, 5vw, 4rem); line-height: 1.02; }
+  .text { margin: 0; font-size: 1.2rem; line-height: 1.6; }
+  .links { display: flex; flex-direction: column; gap: 14px; align-items: flex-start; }
+  .big { padding: 18px 30px; font-size: 1.1rem; }
+  .social { margin: 0; display: flex; gap: 20px; flex-wrap: wrap; }
+  .social a { padding: 10px 0; font-weight: 700; }
+</style>
